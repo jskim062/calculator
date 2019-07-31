@@ -11,26 +11,74 @@ var1 = StringVar()
 var2= StringVar()
 var3 = StringVar()
 
-
+np = 1
 op = 1
-
-
+gen = 0
 isfirst = 0
 ph2 = 0
 ph1 = 0
 #isfirst = StringVar()
 
+    
+
+def down(e):
+    print ('Key Down: ', e.char)
+    if e.char == "1":
+        one()
+    elif e.char == "2":
+        two()
+    elif e.char == "3":
+        three()
+    elif e.char == "4":
+        four()
+    elif e.char == "5":
+        five()
+    elif e.char == "6":
+        six()
+    elif e.char == "7":
+        seven()
+    elif e.char == "8":
+        eight()
+    elif e.char == "-":
+        nine()
+    elif e.char == "0":
+        zero()
+    elif e.char == "2":
+        minus()
+    elif e.char == "+":
+        plus()
+    elif e.char == "-":
+        minus()
+    elif e.char == "*":
+        multiply()
+    elif e.char == "/":
+        division()
+    elif e.char == "=":
+        result()
+
+window.bind('<KeyPress>', down)
+
 def one():
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("1")
+        ph1 = "1"
         isfirst = 1
-        ph1 = 1
-    else:
-        var3.set("1")
-        ph2 = 1
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "1"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        np = 3
+        ph2 = "1"
+        var3.set(ph2)
+    elif gen == 3:
+        ph2 = ph2 + "1"
+        var3.set(ph2)
 
 def two():
     #label = tkinter.Label(window, text=2)
@@ -38,128 +86,252 @@ def two():
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
+    
     if isfirst == 0:
-        var1.set("2")
+        
         isfirst = 1
-        ph1 = 2
-    else:
-        var3.set("2")
-        ph2 = 2
+        ph1 = "2"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "2"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        np = 3
+        ph2 = "2"
+        var3.set(ph2)
+    elif gen == 3:
+        ph2 = ph2 + "2"
+        var3.set(ph2)
     
 
 def three():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("3")
+        
         isfirst = 1
-        ph1 = 3
-    else:
-        var3.set("3")
-        ph2 = 3
+        ph1 = "3"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "3"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        np = 3
+        ph2 = "3"
+        var3.set(ph2)
+    elif gen == 3:
+        ph2 = ph2 + "3"
+        var3.set(ph2)
     
 
 def four():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("4")
-        isfirst = 4
-        ph1 = 1
-    else:
-        var3.set("4")
-        ph2 = 4
+        
+        isfirst = 1
+        ph1 = "4"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "4"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        np = 3
+        ph2 = "4"
+        var3.set(ph2)
+    elif gen == 3:
+        ph2 = ph2 + "4"
+        var3.set(ph2)
     
 
 def five():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("5")
+        
         isfirst = 1
-        ph1 = 5
-    else:
-        var3.set("5")
-        ph2 = 5
+        ph1 = "5"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "5"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        np = 3
+        ph2 = "5"
+        var3.set(ph2)
+    elif gen == 3:
+        ph2 = ph2 + "5"
+        var3.set(ph2)
     
 
 def six():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("6")
+        
         isfirst = 1
-        ph1 = 6
-    else:
-        var3.set("6")
-        ph2 = 6
+        ph1 = "6"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "6"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        np = 3
+        ph2 = "6"
+        var3.set(ph2)
+    elif gen == 3:
+        ph2 = ph2 + "6"
+        var3.set(ph2)
     
 
 def seven():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("1")
-        isfirst = 7
-        ph1 = 7
-    else:
-        var3.set("7")
-        ph2 = 7
+        
+        isfirst = 1
+        ph1 = "7"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "7"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        ph2 = "7"
+        var3.set(ph2)
+        np = 3
+
+    elif gen == 3:
+        ph2 = ph2 + "7"
+        var3.set(ph2)
     
 
 def eight():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("8")
+        
         isfirst = 1
-        ph1 = 8
-    else:
-        var3.set("8")
-        ph2 = 8
+        ph1 = "8"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "8"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        ph2 = "8"
+        var3.set(ph2)
+        np = 3
+    elif gen == 3:
+        ph2 = ph2 + "8"
+        var3.set(ph2)
     
 
 def nine():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global gen
+    global np
     if isfirst == 0:
-        var1.set("9")
+        
         isfirst = 1
-        ph1 = 9
-    else:
-        var3.set("9")
-        ph2 = 9
+        ph1 = "9"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "9"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        ph2 = "9"
+        var3.set(ph2)
+        np = 3
+    elif gen == 3:
+        ph2 = ph2 + "9"
+        var3.set(ph2)
     
 
 def zero():
+    #label = tkinter.Label(window, text=2)
+    #label.pack()
     global isfirst
     global ph1
     global ph2
+    global np
+    global gen
     if isfirst == 0:
-        var1.set("0")
+        
         isfirst = 1
-        ph1 = 0
-    else:
-        var3.set("0")
-        ph2 = 0
-    
+        ph1 = "0"
+        var1.set(ph1)
+    elif isfirst == 1:
+        ph1 = ph1 + "0"
+        var1.set(ph1)
+    elif np == 2:
+        gen = 3
+        ph2 = "0"
+        np == 3
+        var3.set(ph2)
+        
+    elif gen == 3:
+        ph2 = ph2 + "0"
+        var3.set(ph2)
+   
 
 def minus():
+    global np
     global op
     var2.set("-")
+    np = 2
     op = 2
 
 def plus():
     global op
+    global np
+    global isfirst
+    isfirst = 3
     var2.set("+")
     op = 1
+    np = 2
         
         
         
@@ -167,12 +339,21 @@ def plus():
     
 def multiply():
     global op
+    global np
+    global isfirst
+    isfirst = 3
+
     var2.set("*")
+    np = 2
     op = 3
     
 def division():
     global op
+    global np
+    global isfirst
+    isfirst = 3
     var2.set("/")
+    np = 2
     op = 4
 
 
@@ -182,13 +363,18 @@ def result():
     #label.pack()
     global op
     if op == 1:
-        print(ph1 + ph2)
+        print(int(ph1) + int(ph2))
     elif op == 2:
-        print(ph1 - ph2)
+        print(int(ph1) - int(ph2))
     elif op == 3:
-        print(ph1 * ph2)
+        print(int(ph1) * int(ph2))
     elif op == 4:
-        print(ph1 / ph2)
+        if ph1 == "0":
+            print("no answer")
+        elif ph2 == "0":
+            print("no answer")
+        else:
+            print(int(ph1) / int(ph2))
 
 button1 = tkinter.Button(window, overrelief="solid", text = "1", width=5, command = one)
 button1.place(x=220, y=100)
@@ -221,7 +407,7 @@ button9 = tkinter.Button(window, overrelief="solid", text = 9, width=5, command 
 button9.place(x=420, y=300)
 
 button0 = tkinter.Button(window, overrelief="solid", text = 0, width=5, command = zero, repeatdelay=1000, repeatinterval=100)
-button0.place(x=50, y=350)
+button0.place(x=320, y=350)
 
 buttonminus = tkinter.Button(window, overrelief="solid", text = "-", width=5, command = minus, repeatdelay=1000, repeatinterval=100)
 buttonminus.place(x=50, y=50)
