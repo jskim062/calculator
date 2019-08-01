@@ -23,7 +23,6 @@ ph1 = 0
 #isfirst = StringVar()
 
 
-
 def down(e):
     print ('Key Down: ', e.char)
     if e.char == "1":
