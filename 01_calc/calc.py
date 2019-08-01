@@ -2,6 +2,7 @@ import tkinter
 from tkinter import messagebox
 from tkinter import *
 
+
 window=tkinter.Tk()
 window.title("YUN DAE HEE")
 window.geometry("640x400+100+100")
@@ -10,7 +11,9 @@ window.resizable(False, False)
 var1 = StringVar()
 var2= StringVar()
 var3 = StringVar()
-
+a = []
+b = []
+w = 0
 np = 1
 op = 1
 gen = 0
@@ -19,7 +22,7 @@ ph2 = 0
 ph1 = 0
 #isfirst = StringVar()
 
-    
+
 
 def down(e):
     print ('Key Down: ', e.char)
@@ -362,25 +365,110 @@ def result():
     #label = tkinter.Label(window, text="=")
     #label.pack()
     global op
+    global ww
     if op == 1:
         print(int(ph1) + int(ph2))
+        ww = 1
+        cr()
     elif op == 2:
         print(int(ph1) - int(ph2))
+        ww = 1
+        cr()
     elif op == 3:
         print(int(ph1) * int(ph2))
+        ww = 1
+        cr()
     elif op == 4:
         if ph1 == "0":
             print("no answer")
+            ww = 1
+            cr()
         elif ph2 == "0":
             print("no answer")
+            ww = 1
+            cr()
         else:
             print(int(ph1) / int(ph2))
+            ww = 1
+            cr()
+def cr():    
+    global isfirst
+    global a
+    global b
+    if ww == 1:
+        listbox = tkinter.Listbox(window, selectmode='extended', height=0)
+        if op == 1:
+            
+            mg = ph1 + "+" + ph2 + "=" + str(int(ph1) + int(ph2))
+            #print(mg)
+            a.append(mg)
+            #print(a)
+            b = a
+            for i in b:
+                listbox.insert(0, i)
+                listbox.place(x = 480, y =10)
+                isfirst = 0
+            
+        
+            
+            
+        elif op == 2:
+            mg = ph1 + "-" + ph2 + "=" + str(int(ph1) - int(ph2))
+            #print(mg)
+            a.append(mg)
+            #print(a)
+            b = a
+            for i in b:
+                listbox.insert(0, i)
+                listbox.place(x = 480, y =10)
+                isfirst = 0
+        elif op == 3:
+            fv = ph1 + "-" + ph2 + "=" + str(int(ph1) - int(ph2))
+            #print(mg)
+            a.append(fv)
+            #print(a)
+            b = a
+            for i in b:
+                listbox.insert(0, i)
+                listbox.place(x = 480, y =10)
+                isfirst = 0
+        elif op == 4:
+            if ph1 == "0":
+                cq = "no answer"
+                #print(mg)
+                a.append(cq)
+                #print(a)
+                b = a
+                for i in b:
+                    listbox.insert(0, i)
+                    listbox.place(x = 480, y =10)
+                    isfirst = 0
+            
+            elif ph2 == "0":
+                cg = "no answer"
+                #print(mg)
+                a.append(cg)
+                #print(a)
+                b = a
+                for i in b:
+                    listbox.insert(0, i)
+                    listbox.place(x = 480, y =10)
+                    isfirst = 0
+                
+            else:
+                mm = ph1 + "/" + ph2 + "=" + str(int(ph1) / int(ph2))
+            #print(mg)
+                a.append(mm)
+            #print(a)
+                b = a
+                for i in b:
+                    listbox.insert(0, i)
+                    listbox.place(x = 480, y =10)
+                    isfirst = 0
 
 button1 = tkinter.Button(window, overrelief="solid", text = "1", width=5, command = one)
 button1.place(x=220, y=100)
 
-#label = tkinter.Label(window, text=result)
-#label.pack()
 
 button2 = tkinter.Button(window, overrelief="solid", text = 2, width=5, command = two, repeatdelay=1000, repeatinterval=100)
 button2.place(x=320, y=100)
@@ -432,7 +520,6 @@ label.place(x = 320, y=10)
 
 label=tkinter.Label(window, text="파이썬", textvariable=var3, width=10, height=5, fg="red", relief="solid")
 label.place(x=420, y=10)
-
 
 
 window.mainloop()
