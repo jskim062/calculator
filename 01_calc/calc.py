@@ -4,15 +4,18 @@ from tkinter import *
 
 
 window=tkinter.Tk()
-window.title("YUN DAE HEE")
+window.title("jskim")
 window.geometry("640x400+100+100")
 window.resizable(False, False)
 
+
+
+uk = 0
 var1 = StringVar()
-var2= StringVar()
+var2 = StringVar()
 var3 = StringVar()
 a = []
-b = []
+
 w = 0
 np = 1
 op = 1
@@ -21,6 +24,37 @@ isfirst = 0
 ph2 = 0
 ph1 = 0
 #isfirst = StringVar()
+
+def close():
+    window.quit()
+    window.destroy()
+
+#def reset():
+    #listbox = tkinter.Listbox(window, selectmode='extended', height=0)
+    #listbox.delete(0, 'end')
+    #listbox.place(x = 480, y =10)
+listbox = tkinter.Listbox(window, selectmode='extended', height=0)
+def reset():
+    global a
+    var1.set("")
+    var2.set("")
+    var3.set("")
+    a = []
+    listbox.delete(0, 'end')
+    
+
+menubar=tkinter.Menu(window)
+
+
+menu_1=tkinter.Menu(menubar, tearoff=0)
+menu_1.add_command(label="reset", command=reset)
+menu_1.add_command(label="maker")
+menu_1.add_separator()
+menu_1.add_command(label="하위 메뉴 1-3", command=close)
+menubar.add_cascade(label="menu", menu=menu_1)
+
+window.config(menu=menubar)
+
 
 
 def down(e):
@@ -108,7 +142,6 @@ def two():
         ph2 = ph2 + "2"
         var3.set(ph2)
     
-
 def three():
     #label = tkinter.Label(window, text=2)
     #label.pack()
@@ -365,6 +398,7 @@ def result():
     #label.pack()
     global op
     global ww
+    print("resultop : ", op)
     if op == 1:
         print(int(ph1) + int(ph2))
         ww = 1
@@ -390,13 +424,22 @@ def result():
             print(int(ph1) / int(ph2))
             ww = 1
             cr()
+    elif op == 5:
+        print("op5")
+        cr()
+
 def cr():    
     global isfirst
     global a
     global b
     if ww == 1:
-        listbox = tkinter.Listbox(window, selectmode='extended', height=0)
-        if op == 1:
+        
+        
+        if op == 5:
+            print("ugr")
+            #gha = listbox.size()
+            #listbox.delete(0, gha)
+        elif op == 1:
             
             mg = ph1 + "+" + ph2 + "=" + str(int(ph1) + int(ph2))
             #print(mg)
@@ -405,9 +448,8 @@ def cr():
             b = a
             for i in b:
                 listbox.insert(0, i)
-                listbox.place(x = 480, y =10)
+                listbox.place(x = 520, y =10)
                 isfirst = 0
-            
         
             
             
@@ -419,17 +461,17 @@ def cr():
             b = a
             for i in b:
                 listbox.insert(0, i)
-                listbox.place(x = 480, y =10)
+                listbox.place(x = 520, y =10)
                 isfirst = 0
         elif op == 3:
-            fv = ph1 + "-" + ph2 + "=" + str(int(ph1) - int(ph2))
+            fv = ph1 + "*" + ph2 + "=" + str(int(ph1) * int(ph2))
             #print(mg)
             a.append(fv)
             #print(a)
             b = a
             for i in b:
                 listbox.insert(0, i)
-                listbox.place(x = 480, y =10)
+                listbox.place(x = 520, y =10)
                 isfirst = 0
         elif op == 4:
             if ph1 == "0":
@@ -440,7 +482,7 @@ def cr():
                 b = a
                 for i in b:
                     listbox.insert(0, i)
-                    listbox.place(x = 480, y =10)
+                    listbox.place(x = 520, y =10)
                     isfirst = 0
             
             elif ph2 == "0":
@@ -451,7 +493,7 @@ def cr():
                 b = a
                 for i in b:
                     listbox.insert(0, i)
-                    listbox.place(x = 480, y =10)
+                    listbox.place(x = 520, y =10)
                     isfirst = 0
                 
             else:
@@ -464,6 +506,7 @@ def cr():
                     listbox.insert(0, i)
                     listbox.place(x = 480, y =10)
                     isfirst = 0
+    
 
 button1 = tkinter.Button(window, overrelief="solid", text = "1", width=5, command = one)
 button1.place(x=220, y=100)
