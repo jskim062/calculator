@@ -4,7 +4,7 @@ from tkinter import *
 
 
 window=tkinter.Tk()
-window.title("jskim")
+window.title("calculator")
 window.geometry("640x400+100+100")
 window.resizable(False, False)
 
@@ -15,6 +15,7 @@ var1 = StringVar()
 var2 = StringVar()
 var3 = StringVar()
 a = []
+
 
 w = 0
 np = 1
@@ -29,28 +30,29 @@ def close():
     window.quit()
     window.destroy()
 
-#def reset():
-    #listbox = tkinter.Listbox(window, selectmode='extended', height=0)
-    #listbox.delete(0, 'end')
-    #listbox.place(x = 480, y =10)
-listbox = tkinter.Listbox(window, selectmode='extended', height=0)
+def maker():
+    tkinter.messagebox.showinfo("maker", "made by" " teen developer")
+
 def reset():
     global a
+    global ph1
+    global ph2
     var1.set("")
     var2.set("")
     var3.set("")
+    ph1 = ""
+    ph2 = ""
     a = []
     listbox.delete(0, 'end')
-    
 
 menubar=tkinter.Menu(window)
 
 
 menu_1=tkinter.Menu(menubar, tearoff=0)
 menu_1.add_command(label="reset", command=reset)
-menu_1.add_command(label="maker")
+menu_1.add_command(label="maker", command=maker)
 menu_1.add_separator()
-menu_1.add_command(label="하위 메뉴 1-3", command=close)
+menu_1.add_command(label="close", command=close)
 menubar.add_cascade(label="menu", menu=menu_1)
 
 window.config(menu=menubar)
@@ -163,7 +165,7 @@ def three():
         np = 3
         ph2 = "3"
         var3.set(ph2)
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "3"
         var3.set(ph2)
     
@@ -189,7 +191,7 @@ def four():
         np = 3
         ph2 = "4"
         var3.set(ph2)
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "4"
         var3.set(ph2)
     
@@ -215,7 +217,7 @@ def five():
         np = 3
         ph2 = "5"
         var3.set(ph2)
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "5"
         var3.set(ph2)
     
@@ -241,7 +243,7 @@ def six():
         np = 3
         ph2 = "6"
         var3.set(ph2)
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "6"
         var3.set(ph2)
     
@@ -268,7 +270,7 @@ def seven():
         var3.set(ph2)
         np = 3
 
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "7"
         var3.set(ph2)
     
@@ -294,7 +296,7 @@ def eight():
         ph2 = "8"
         var3.set(ph2)
         np = 3
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "8"
         var3.set(ph2)
     
@@ -320,7 +322,7 @@ def nine():
         ph2 = "9"
         var3.set(ph2)
         np = 3
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "9"
         var3.set(ph2)
     
@@ -347,7 +349,7 @@ def zero():
         np == 3
         var3.set(ph2)
         
-    elif gen == 3:
+    elif isfirst == 3:
         ph2 = ph2 + "0"
         var3.set(ph2)
    
@@ -355,6 +357,8 @@ def zero():
 def minus():
     global np
     global op
+    global isfirst
+    isfirst = 3
     var2.set("-")
     np = 2
     op = 2
@@ -398,7 +402,6 @@ def result():
     #label.pack()
     global op
     global ww
-    print("resultop : ", op)
     if op == 1:
         print(int(ph1) + int(ph2))
         ww = 1
@@ -424,87 +427,81 @@ def result():
             print(int(ph1) / int(ph2))
             ww = 1
             cr()
-    elif op == 5:
-        print("op5")
-        cr()
-
+    
+listbox = tkinter.Listbox(window, selectmode='extended', height=0)
+listbox.place(x = 520, y =10)
 def cr():    
     global isfirst
     global a
-    global b
+    
     if ww == 1:
         
         
-        if op == 5:
-            print("ugr")
-            #gha = listbox.size()
-            #listbox.delete(0, gha)
-        elif op == 1:
-            
+        if op == 1:
+            listbox.delete(0, 'end')
             mg = ph1 + "+" + ph2 + "=" + str(int(ph1) + int(ph2))
             #print(mg)
             a.append(mg)
             #print(a)
-            b = a
-            for i in b:
+            
+            for i in a:
                 listbox.insert(0, i)
-                listbox.place(x = 520, y =10)
                 isfirst = 0
         
             
             
         elif op == 2:
+            listbox.delete(0, 'end')
             mg = ph1 + "-" + ph2 + "=" + str(int(ph1) - int(ph2))
             #print(mg)
             a.append(mg)
             #print(a)
-            b = a
-            for i in b:
+            
+            for i in a:
                 listbox.insert(0, i)
-                listbox.place(x = 520, y =10)
                 isfirst = 0
         elif op == 3:
+            listbox.delete(0, 'end')
             fv = ph1 + "*" + ph2 + "=" + str(int(ph1) * int(ph2))
             #print(mg)
             a.append(fv)
             #print(a)
-            b = a
-            for i in b:
+            
+            for i in a:
                 listbox.insert(0, i)
-                listbox.place(x = 520, y =10)
                 isfirst = 0
         elif op == 4:
             if ph1 == "0":
+                listbox.delete(0, 'end')
                 cq = "no answer"
                 #print(mg)
                 a.append(cq)
                 #print(a)
-                b = a
-                for i in b:
+                
+                for i in a:
                     listbox.insert(0, i)
-                    listbox.place(x = 520, y =10)
+                    
                     isfirst = 0
             
             elif ph2 == "0":
+                listbox.delete(0, 'end')
                 cg = "no answer"
                 #print(mg)
                 a.append(cg)
                 #print(a)
-                b = a
-                for i in b:
+                
+                for i in a:
                     listbox.insert(0, i)
-                    listbox.place(x = 520, y =10)
                     isfirst = 0
                 
             else:
+                listbox.delete(0, 'end')
                 mm = ph1 + "/" + ph2 + "=" + str(int(ph1) / int(ph2))
-            #print(mg)
                 a.append(mm)
-            #print(a)
-                b = a
-                for i in b:
+            
+                
+                for i in a:
                     listbox.insert(0, i)
-                    listbox.place(x = 480, y =10)
                     isfirst = 0
     
 
