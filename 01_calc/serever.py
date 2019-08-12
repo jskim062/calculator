@@ -3,8 +3,6 @@ import tkinter
 import requests
 import json
 
-
-
 window=tkinter.Tk()
 window.title("jskim")
 window.geometry("640x400+100+100")
